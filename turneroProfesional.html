@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turnero Administrador</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./css/turneroProf.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="container-fluid  d-flex justify-content-center" style="background-color: #228b22">
+      <p class="text-light mb-0 p-2 fs-4 fw-bold">
+        Decires Equipo Interdisciplinario
+      </p>
+  </header>
+   
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="menu">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Decires</a>
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+     
+<main>
+  <div class="" id="central">
+      <div class="Trabajo p-2 text-white text-center" style="background-color: #228b22">
+        <h1>Agendar Turnos</h1>
+      </div>
+    <div id="turnero"  class="container mt-5 p-5">
+      <div id="contenido" class="row">
+        <div class="col-md-6 agregar-cita" id="agregar-cita">
+          <form id="nueva-cita">
+            <legend class="mb-4">Datos del Paciente</legend>
+            <div class="form-group row">
+              <label class="col-sm-4 col-lg-4 col-form-label">Nombre:</label>
+              <div class="col-sm-8 col-lg-8">
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  class="form-control"
+                  placeholder="Nombre"
+                />
+              </div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-4 col-lg-4 col-form-label">Apellido:</label>
+              <div class="col-sm-8 col-lg-8">
+                <input
+                  type="text"
+                  id="apellido"
+                  name="apellido"
+                  class="form-control"
+                  placeholder="Apellido"
+                />
+              </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-4 col-lg-4 col-form-label"
+                  >Disciplina:</label
+                >
+                <div class="col-sm-8 col-lg-8">
+                  <select
+                    class="form-select form-select-sm"
+                    aria-label=".form-select-sm example"
+                    name="disciplina"
+                    id="disciplina"
+                    onChange="update()"
+                  >
+                    <option>Seleccione una Especialidad...</option>
+                  </select>
+                </div>
+              </div>
+              <br>
+            <div class="form-group row">
+              <label class="col-sm-4 col-lg-4 col-form-label"
+                >Profesional:</label
+              >
+              <div class="col-sm-8 col-lg-8">
+                <select
+                class="form-select form-select-sm"
+                aria-label=".form-select-sm example"
+                name="profesional"
+                id="profesional"
+              >
+                <option>Seleccione un Profesional...</option>
+              </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-4 col-lg-4 col-form-label">Teléfono:</label>
+              <div class="col-sm-8 col-lg-8">
+                <input
+                  type="tel"
+                  id="telefono"
+                  name="telefono"
+                  class="form-control"
+                  placeholder="Número de Teléfono"
+                />
+              </div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-4 col-lg-4 col-form-label">Fecha:</label>
+              <div class="col-sm-8 col-lg-8">
+                <input
+                  type="date"
+                  id="fecha"
+                  name="fecha"
+                  class="form-control"
+                />
+              </div>
+            </div>
+<br>
+            <div class="form-group row">
+              <label class="col-sm-4 col-lg-4 col-form-label">Hora:</label>
+              <div class="col-sm-8 col-lg-8">
+                <input type="time" id="hora" name="hora" class="form-control" />
+              </div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-4 col-lg-4 col-form-label"
+                >Motivo de consulta:</label
+              >
+              <div class="col-sm-8 col-lg-8">
+                <textarea
+                  id="consulta"
+                  name="consulta"
+                  class="form-control"
+                ></textarea>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <button id="botoncito" type="submit" class="btn btn-success w-100 d-block">Agregar turno</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <h2 id="administra" class="mb-4">Administra tus Citas</h2>
+          <ul id="citas" class="list-group lista-citas"></ul>
+        </div>
+      </div>
+      <!--.row-->
+    </div>
+  </div>
+  </main>
+
+  <footer>
+    <section
+      class="d-flex justify-content-between p-4 text-white mt-3"
+      id="piePagina"
+    >
+      <div class="me-5">
+        <span>Conectacte con Decires a traves de nuestras redes:</span>
+      </div>
+
+      <div>
+        <a href="" class="text-white me-4"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <a href="" class="text-white me-4"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </section>
+    <section class="decires">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold">Decires</h6>
+            <hr
+              class="mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px; background-color: #82f4b1; height: 2px"
+            />
+            <p>
+              Espacio de trabajo interdisciplinario y multiprofesional que
+              busca brindar a nuestrxs pacientes una mejor calidad de vida.
+            </p>
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold" id="especialidad">
+              Especialidades
+            </h6>
+            <hr
+              class="mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px; background-color: #82f4b1; height: 2px"
+            />
+            <p><a href="#!" class="text-dark">Psicologia</a></p>
+            <p><a href="#!" class="text-dark">Fonoaudiologia</a></p>
+            <p><a href="#!" class="text-dark">Psicopedagogia</a></p>
+            <p><a href="#!" class="text-dark">Psicomotricidad</a></p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold">Equipo</h6><hr
+              class="mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px; background-color: #82f4b1; height: 2px"
+            />
+            <p><a href="#!" class="text-dark">Nuestra Historia</a></p>
+            <p><a href="#!" class="text-dark">Profesionales</a></p>
+            <p><a href="#!" class="text-dark">Novedades</a></p>
+            <p><a href="#!" class="text-dark">Talleres</a></p>
+          </div>
+       
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold">Contacto</h6>
+            <hr
+              class="mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px; background-color: #82f4b1; height: 2px"
+            />
+            <p><i class="fas fa-home mr-3"></i> Córdoba - Argentina</p>
+            <p><i class="fas fa-envelope mr-3"></i> decires@gmail.com</p>
+            <p><i class="fas fa-phone mr-3"></i> 54-351-123456</p>
+            <p><i class="fas fa-print mr-3"></i> 54-351-123456</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2022 Decires Equipo Interdisciplinario
+    </div>
+  </footer>
+  
+    <!--.container-->
+
+    <script src="./js/turneroProfesional.js"></script>
+  </body>
+</html>

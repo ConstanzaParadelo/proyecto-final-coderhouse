@@ -1,0 +1,86 @@
+
+/* body{
+    background-color: #ECEFF1;
+} */
+html {
+    min-height: 100%;
+  }
+body {
+    margin: 0;
+    /* padding: 0; */
+    font-family: sans-serif;
+    background-image: url(Decires1.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+
+}
+#menu a{
+    
+    font-size: 18px;
+    font-weight: bold;
+    color: #228b22;
+}
+#menu a:hover{
+    background-color: #228b22;
+    color: white; 
+}
+
+#navbarNavAltMarkup a:hover{
+    background-color: #228b22;
+    color: white;
+
+}
+
+#carouselExampleControls img{
+    align-items: center;
+    width: 50%;
+    margin-left: 25%;
+    
+}
+
+/* main {
+    
+    background-image: url(Decires1.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100%;
+    padding-bottom: 20rem;
+
+
+} */
+
+
+
+  
+
+main .card{
+    background-color: rgba(34, 139, 34, 0.5);
+    color: white; 
+    
+}
+
+footer{
+    background-color: #ECEFF1;
+    margin-top: auto;
+    
+}
+ 
+#piePagina {
+    background-color: #228b22
+}
+
+
+
+ 
+   
+    
+
+

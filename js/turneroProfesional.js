@@ -315,7 +315,9 @@ let profesionales = [
     {
         nombre: 'Luciana',
         profesion: 'Psicomotricista'
-    }
+    },
+    {  nombre: 'Paola',
+    profesion: 'Psicopedagogia'}
 ]
 
 function cargarDisciplina()
@@ -344,21 +346,38 @@ console.log(value);
 }
 
 function update() {
-    document.getElementById("profesionales").innerHTML = "";
-    let select = document.getElementById('profesiones');
+    document.getElementById("profesional").innerHTML = "";
+    let select = document.getElementById('disciplina');
     let option = select.options[select.selectedIndex];
     filtroProfesionales = profesionales.filter((el) => el.profesion === option.value);
     if(filtroProfesionales.length == 0) {
-        document.getElementById("profesionales").innerHTML = "<option>No contamos con profesionales para esa especialidad</option>";
+        document.getElementById("profesional").innerHTML = "<option>No contamos con profesionales para esa especialidad</option>";
     } else {
     
         for(let i in filtroProfesionales)
         {   
-            document.getElementById("profesionales").innerHTML += "<option value='"+filtroProfesionales[i].nombre+"'>"+filtroProfesionales[i].nombre+"</option>"; 
+            document.getElementById("profesional").innerHTML += "<option value='"+filtroProfesionales[i].nombre+"'>"+filtroProfesionales[i].nombre+"</option>"; 
     
         }
     }
 }
 
+async function asyncLocalStorage () {
+  let loginJson = JSON.parse(localStorage.getItem("usuarios"));
+  const contenido = document.getElementById('administrarCitas');
+  console.log(loginJson);
+  contenido.innerHTML = `
+  <h2 id="administra" class="mb-4">Administra tus Citas ${loginJson[0].nombre} ${loginJson[0].apellido}</h2>
+  `
+  }
+
+function mostrarNombreusuario(resultado) {
+  const contenido = document.getElementById('administrarCitas');
+  contenido.innerHTML = `
+  <h2 id="administra" class="mb-4">Administra tus Citas</h2>
+  `
+}
+
 cargarDisciplina();
 cargarProfesionales();
+asyncLocalStorage();
